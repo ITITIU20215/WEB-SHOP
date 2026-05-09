@@ -1,83 +1,197 @@
-import React, { useState, useEffect } from "react";
-import Header from "../components/Header.js";
+import React from "react";
+
+const teamMembers = [
+  {
+    id: 1,
+    name: "Dinh Huu Tien",
+    role: "Back-end Developer & Database Manager",
+    description:
+      "Tien architects the server-side systems and database, ensuring the platform is fast, reliable, and always available.",
+    imageUrl: "https://avatar.iran.liara.run/public/74",
+    skills: ["Node.js", "MongoDB", "Express"],
+  },
+  {
+    id: 2,
+    name: "Nguyen Van Huy",
+    role: "Front-end Developer & UI/UX Designer",
+    description:
+      "Huy turns ideas into pixel-perfect, responsive interfaces that are as delightful to use as they are to look at.",
+    imageUrl: "https://avatar.iran.liara.run/public/48",
+    skills: ["React", "Tailwind CSS", "Figma"],
+  },
+];
+
+const values = [
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+      </svg>
+    ),
+    title: "Customer First",
+    desc: "Every feature we build starts by asking what creates the best experience for our shoppers.",
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+    title: "Quality Craft",
+    desc: "We sweat the details so our users never have to. Great products are built with care.",
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+    ),
+    title: "Always Improving",
+    desc: "We move fast, listen to feedback, and continuously ship better experiences.",
+  },
+];
+
+const stats = [
+  { value: "500+", label: "Products" },
+  { value: "10K+", label: "Customers" },
+  { value: "2", label: "Founders" },
+  { value: "99%", label: "Satisfaction" },
+];
+
 function About() {
-  const [teamMembers, setTeamMembers] = useState([]);
-
-  useEffect(() => {
-    const fetchTeamMembers = () => {
-      const data = [
-        {
-          id: 1,
-          name: "Huynh Thanh Thuy",
-          role: "Front-end Developer & UI/UX Designer",
-          description:
-            "Thuy is responsible for the front-end development and the user interface design, ensuring a seamless and engaging user experience.",
-          imageUrl: "https://avatar.iran.liara.run/public/74",
-        },
-        {
-          id: 2,
-          name: "Doan Huu Nguyen",
-          role: "Back-end Developer & Tester",
-          description:
-            "Nguyen specializes in back-end development and testing, ensuring that the server-side logic and database integrations are functioning smoothly.",
-          imageUrl: "https://avatar.iran.liara.run/public/30",
-        },
-        {
-          id: 3,
-          name: "Nguyen Pham Ky Phuong",
-          role: "Database & Back-end Developer",
-          description:
-            "Phuong works on both database management and back-end development, ensuring data integrity and smooth server-side performance.",
-          imageUrl: "https://avatar.iran.liara.run/public/69",
-        },
-        {
-          id: 4,
-          name: "Nguyen Van Huy",
-          role: "Front-end Developer",
-          description:
-            "Huy focuses on front-end development, making sure that the application is visually appealing, functional, and user-friendly.",
-          imageUrl: "https://avatar.iran.liara.run/public/48",
-        },
-      ];
-
-      setTeamMembers(data);
-    };
-
-    fetchTeamMembers();
-  }, []);
-
   return (
-    <div className="min-h-screen flex flex-col bg-brown-500 items-center px-6 py-[120px]">
-      {/* Description */}
-      <div className="max-w-6xl w-full space-y-[60px]">
-        <h2 className="text-display-3 font-bold text-heading-black text-center">
-          Meet <span className="text-orange-500">Our Team</span>
-        </h2>
+    <div className="min-h-screen bg-brown-500 font-sans">
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-          {teamMembers.map((member) => (
+      {/* Hero */}
+      <section className="relative overflow-hidden bg-brown pt-32 pb-28 px-6 text-center">
+        <div
+          className="absolute inset-0 opacity-10"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 20% 60%, #FF7029 0%, transparent 50%), radial-gradient(circle at 80% 20%, #D74800 0%, transparent 45%)",
+          }}
+        />
+        <div className="relative max-w-3xl mx-auto space-y-6">
+          <span className="inline-block text-orange-400 text-sm font-semibold tracking-widest uppercase px-4 py-1.5 rounded-full border border-orange-500 border-opacity-40">
+            About Us
+          </span>
+          <h1 className="text-display-2 font-bold text-white leading-tight">
+            Built by two,<br />
+            <span className="text-orange-400">loved by thousands</span>
+          </h1>
+          <p className="text-brown-700 text-xl leading-relaxed">
+            WEB-SHOP started as a passion project — two developers who believed
+            online shopping could be simpler, faster, and actually enjoyable.
+          </p>
+        </div>
+      </section>
+
+      {/* Stats */}
+      <section className="bg-white border-y border-brown-600">
+        <div className="max-w-4xl mx-auto grid grid-cols-2 md:grid-cols-4 divide-x divide-brown-600">
+          {stats.map((stat) => (
+            <div key={stat.label} className="py-10 text-center">
+              <p className="text-display-3 font-bold text-orange-500">{stat.value}</p>
+              <p className="text-brown-1000 mt-1">{stat.label}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Mission */}
+      <section className="max-w-5xl mx-auto px-6 py-24 grid md:grid-cols-2 gap-16 items-center">
+        <div className="space-y-5">
+          <h2 className="text-display-3 font-bold text-heading-black">
+            Why we built<br />
+            <span className="text-orange-500">this shop</span>
+          </h2>
+          <p className="text-brown-1000 text-dm-base leading-relaxed">
+            We were tired of online stores that were slow, cluttered, and hard to trust.
+            So we built WEB-SHOP — a store we'd actually want to use ourselves.
+          </p>
+          <p className="text-brown-1000 text-dm-base leading-relaxed">
+            From the first commit to the latest deploy, every decision has been made
+            with one goal: make shopping simpler and more human.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 gap-4">
+          {values.map((v) => (
             <div
-              key={member.id}
-              className="flex flex-col items-center space-y-4 bg-white shadow-md rounded-3xl p-6 transition-transform transform hover:scale-105"
+              key={v.title}
+              className="flex gap-4 bg-white rounded-2xl p-5 border border-brown-600 hover:border-orange-500 transition-colors duration-200 shadow-custom"
             >
-              <img
-                src={member.imageUrl}
-                alt={member.name}
-                className="w-36 h-36 rounded-full object-cover border-gray-200"
-              />
-              <div className="text-center">
-                <h3 className="text-2xl font-semibold text-heading-black">
-                  {member.name}
-                </h3>
-                <p className="text-brown-1000 text-dm-base">{member.role}</p>
-                <p className="text-gray-500 text-lg mt-2">
-                  {member.description}
-                </p>
+              <div className="flex-shrink-0 w-11 h-11 bg-orange-500 bg-opacity-10 rounded-xl flex items-center justify-center text-orange-500">
+                {v.icon}
+              </div>
+              <div>
+                <h3 className="font-semibold text-heading-black">{v.title}</h3>
+                <p className="text-brown-1000 text-sm leading-relaxed mt-0.5">{v.desc}</p>
               </div>
             </div>
           ))}
         </div>
-      </div>
+      </section>
+
+      {/* Team */}
+      <section className="bg-white py-24 px-6">
+        <div className="max-w-4xl mx-auto space-y-14">
+          <div className="text-center space-y-3">
+            <h2 className="text-display-3 font-bold text-heading-black">
+              Meet the <span className="text-orange-500">founders</span>
+            </h2>
+            <p className="text-brown-1000 text-dm-base">
+              Two people, one shared vision — build something people love.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {teamMembers.map((member) => (
+              <div
+                key={member.id}
+                className="group flex flex-col items-center text-center bg-brown-400 rounded-3xl p-10 border border-brown-600 hover:border-orange-500 hover:shadow-custom transition-all duration-300"
+              >
+                <div className="relative mb-6">
+                  <img
+                    src={member.imageUrl}
+                    alt={member.name}
+                    className="w-28 h-28 rounded-2xl object-cover"
+                  />
+                  <div className="absolute -bottom-2 -right-2 w-5 h-5 bg-green-400 rounded-full border-2 border-white" />
+                </div>
+                <h3 className="text-display-4 font-bold text-heading-black">{member.name}</h3>
+                <p className="text-orange-500 font-medium text-sm mt-1">{member.role}</p>
+                <p className="text-brown-1000 text-sm leading-relaxed mt-4">{member.description}</p>
+                <div className="flex flex-wrap justify-center gap-2 mt-5">
+                  {member.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="bg-white text-heading-black text-xs font-medium px-3 py-1 rounded-full border border-brown-600"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="py-24 px-6 text-center space-y-6">
+        <h2 className="text-display-3 font-bold text-heading-black">
+          Ready to explore?
+        </h2>
+        <p className="text-brown-1000 text-dm-base max-w-sm mx-auto">
+          Browse hundreds of products curated for quality and value.
+        </p>
+        <a
+          href="/"
+          className="inline-block bg-orange-500 hover:bg-orange-400 text-white font-semibold px-10 py-4 rounded-2xl transition-colors duration-200 text-lg"
+        >
+          Start Shopping
+        </a>
+      </section>
     </div>
   );
 }
