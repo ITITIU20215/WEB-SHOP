@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Section from "../components/Section.js";
 
 function LandingPage() {
+  const [activeTab, setActiveTab] = useState("Furniture");
+
   return (
     <>
       <section className="w-full h-auto bg-brown-400 bg-center">
@@ -398,429 +400,127 @@ function LandingPage() {
             </section>
           </section>
           {/* Recommended */}
-          <section className="flex w-[1220px] py-[140px] flex-col items-start gap-20">
-            {/* Frame 14 */}
-            <div className="flex w-[613.671px] flex-col items-start gap-6">
-              <h1
-                className="
-                  self-stretch
-                  text-black font-DM Sans text-[56px] font-bold leading-[70px]
-                "
-              >
-                Recommended For You
-              </h1>
-
-              <h2
-                className="
-                  self-stretch 
-                  text-neutral-text-gray font-DM Sans text-[20px] font-normal leading-[30px]
-                "
-              >
-                Explore our handpicked selections crafted to match your style
-                and elevate every corner of your home.
+          <section className="w-full max-w-[1220px] mx-auto py-[140px] flex flex-col gap-16">
+            {/* Header */}
+            <div className="flex flex-col gap-4 max-w-[600px]">
+              <h2 className="text-[56px] font-bold leading-[1.2] text-heading-black">
+                Recommended{" "}
+                <span className="text-orange-500">For You</span>
               </h2>
+              <p className="text-neutral-text-gray text-xl leading-relaxed">
+                Explore our handpicked selections crafted to match your style and elevate every corner of your home.
+              </p>
             </div>
 
-            {/* Frame 17 */}
-            <section className="flex flex-col items-center gap-[60px] self-stretch">
-              {/* Tab */}
-              <div
-                className="
-                  flex justify-center items-start self-stretch
-                  transition-all duration-300 ease-out 
-                  text-brown-1000
-                "
-              >
-                {/* Categories Tab */}
-                <ul className="flex-col w-[105px] flex items-center gap-3 font-semibold">
-                  <li>
-                    <a href="#Furniture" class="hover:text-brown text-lg">
-                      Furniture
-                    </a>
-                  </li>
-                </ul>
-                <ul className="flex-col w-[105px] flex items-center gap-3">
-                  <li>
-                    <a href="#Decoration" class="hover:text-brown text-lg">
-                      Decoration
-                    </a>
-                  </li>
-                </ul>
-                <ul className="flex-col w-[105px] flex items-center gap-3">
-                  <li>
-                    <a href="#Storage" class="hover:text-brown text-lg">
-                      Storage
-                    </a>
-                  </li>
-                </ul>
-                <ul className="flex-col w-[105px] flex items-center gap-3">
-                  <li>
-                    <a href="#Lighting" class="hover:text-brown text-lg">
-                      Lighting
-                    </a>
-                  </li>
-                </ul>
+            {/* Tabs + Grid */}
+            <div className="flex flex-col gap-10">
+              {/* Tab Bar */}
+              <div className="flex border-b border-brown-600">
+                {["Furniture", "Decoration", "Storage", "Lighting"].map((tab) => (
+                  <button
+                    key={tab}
+                    onClick={() => setActiveTab(tab)}
+                    className={`px-6 py-3 text-base font-semibold -mb-px border-b-2 transition-all duration-200 ${
+                      activeTab === tab
+                        ? "border-orange-500 text-orange-500"
+                        : "border-transparent text-brown-1000 hover:text-heading-black hover:border-brown-700"
+                    }`}
+                  >
+                    {tab}
+                  </button>
+                ))}
               </div>
 
-              {/* Product List */}
-              <div className="flex w-full items-center justify-between">
-                {/* Product Card */}
-                <div className="flex w-[268px] flex-col items-center shrink-0 shadow-lg rounded-xl bg-white">
-                  {/* Image  */}
-                  <div className="h-[240px] self-stretch pl-[47px] pr-[47px] pt-[26.7px] pb-[9.26px]">
-                    <img
-                      src="./assets/chair.png"
-                      alt="chair"
-                      className="w-[173.476px] h-[203.733px] shrink-0"
-                    />
-                  </div>
-                  {/* Frame 175 */}
-                  <div
-                    className="
-                            flex p-5 flex-col items-start gap-8 self-stretch
-                            rounded-bl-[20px] rounded-br-[20px]
-                            bg-white
-                          "
-                  >
-                    {/* Frame 3739 */}
-                    <div className="flex flex-col items-start gap-[6px] self-stretch">
-                      {/* Product infor */}
-                      <div className="flex flex-col items-start gap-1 self-stretch">
-                        <h2
-                          className="
-                                  self-stretch
-                                  text-brown-900 font-DM Sans text-[12px] font-semibold leading-normal uppercase
-                                "
-                        >
-                          FURNITURE
-                        </h2>
-                        <h1
-                          className="
-                                w-[188.879px]
-                                text-black font-DM Sans text-[24px] font-semibold leading-normal capitalize
-                              "
-                        >
-                          Sakarias
-                        </h1>
-                        <h2
-                          className="
-                                h-[36px] self-stretch
-                                text-neutral-text-gray font-DM Sans text-[14px] font-normal leading-normal
-                              "
-                        >
-                          This is the sample product description on 2 lines.
-                        </h2>
+              {/* Product Grid */}
+              <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                {[
+                  {
+                    id: 1,
+                    category: "Furniture",
+                    name: "Sakarias",
+                    desc: "This is the sample product description on 2 lines.",
+                    price: "392",
+                    image: "./assets/chair.png",
+                  },
+                  {
+                    id: 2,
+                    category: "Furniture",
+                    name: "Sleeper Sofa",
+                    desc: "A stylish and comfortable modern sofa perfect for any living room.",
+                    price: "1,599",
+                    image: "https://www.ikea.com/us/en/images/products/finnala-sleeper-sofa-gunnared-beige__0686037_pe721537_s5.jpg?f=xl",
+                  },
+                  {
+                    id: 3,
+                    category: "Furniture",
+                    name: "Gaming Chair",
+                    desc: "A sleek and ergonomic chair for comfortable gaming sessions.",
+                    price: "389.55",
+                    image: "https://www.ikea.com/us/en/images/products/styrspel-gaming-chair-dark-gray-gray__1115362_pe872046_s5.jpg?f=xl",
+                  },
+                  {
+                    id: 4,
+                    category: "Furniture",
+                    name: "Table Set",
+                    desc: "A classic wooden dining set for your dining room or patio.",
+                    price: "645.24",
+                    image: "https://www.ikea.com/us/en/images/products/norden-froesvi-table-and-4-chairs-birch-knisa-dark-gray__1328452_pe944787_s5.jpg?f=xl",
+                  },
+                ]
+                  .filter((p) => p.category === activeTab)
+                  .map((product) => (
+                    <div
+                      key={product.id}
+                      className="group flex flex-col rounded-2xl bg-white border border-brown-600 overflow-hidden hover:shadow-xl hover:border-orange-500 hover:-translate-y-1 transition-all duration-300"
+                    >
+                      {/* Image area */}
+                      <div className="h-[220px] bg-brown-300 flex items-center justify-center p-6 overflow-hidden">
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="h-full w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                        />
                       </div>
-
-                      {/* Rating */}
-                      <div className="flex items-center gap-[3px] pt-[6px]">
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                      </div>
-
-                      {/* Card Buttom */}
-                      <div className="flex justify-between items-center self-stretch">
-                        {/* Pricing */}
-                        <div className="flex items-center gap-[2px]">
-                          <h2
-                            className="
-                                  w-[10.663px] h-[18.279px]
-                                  text-black font-Inter text-[14px] font-normal leading-normal
-                                "
-                          >
-                            $
-                          </h2>
-                          <h1
-                            className="
-                                  w-[41.172px] h-[25.895px]
-                                  text-black font-DM Sans text-[21.325px] font-normal leading-normal
-                                "
-                          >
-                            392
-                          </h1>
+                      {/* Info */}
+                      <div className="flex flex-col gap-4 p-5">
+                        <div className="flex flex-col gap-1">
+                          <span className="text-brown-900 text-[11px] font-semibold uppercase tracking-widest">
+                            {product.category}
+                          </span>
+                          <h3 className="text-heading-black text-[22px] font-semibold leading-tight">
+                            {product.name}
+                          </h3>
+                          <p className="text-neutral-text-gray text-[13px] leading-normal line-clamp-2">
+                            {product.desc}
+                          </p>
                         </div>
-
-                        {/* Button */}
-                        <a className="w-[50px] h-[50px]">
-                          <img src="./assets/Circle Button.svg" alt="Plus" />
-                        </a>
+                        {/* Stars */}
+                        <div className="flex items-center gap-[3px]">
+                          {[...Array(5)].map((_, i) => (
+                            <img key={i} src="./assets/star.svg" alt="star" className="w-4 h-4" />
+                          ))}
+                        </div>
+                        {/* Price + Add button */}
+                        <div className="flex items-center justify-between">
+                          <span className="text-heading-black font-bold text-[22px]">
+                            <span className="text-[14px] font-normal mr-0.5">$</span>
+                            {product.price}
+                          </span>
+                          <button className="w-11 h-11 rounded-full bg-heading-black flex items-center justify-center group-hover:bg-orange-500 transition-colors duration-300">
+                            <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
+                            </svg>
+                          </button>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
-                {/* Product Card */}
-                <div className="flex w-[268px] flex-col items-center shrink-0 shadow-lg rounded-xl bg-white">
-                  {/* Image  */}
-                  <div className="h-[240px] self-stretch pl-[47px] pr-[47px] pt-[26.7px] pb-[9.26px]">
-                    <img
-                      src="https://www.ikea.com/us/en/images/products/finnala-sleeper-sofa-gunnared-beige__0686037_pe721537_s5.jpg?f=xl"
-                      alt="chair"
-                      className="w-[173.476px] h-[203.733px] shrink-0"
-                    />
-                  </div>
-                  {/* Frame 175 */}
-                  <div
-                    className="
-                            flex p-5 flex-col items-start gap-8 self-stretch
-                            rounded-bl-[20px] rounded-br-[20px]
-                            bg-white
-                          "
-                  >
-                    {/* Frame 3739 */}
-                    <div className="flex flex-col items-start gap-[6px] self-stretch">
-                      {/* Product infor */}
-                      <div className="flex flex-col items-start gap-1 self-stretch">
-                        <h2
-                          className="
-                                  self-stretch
-                                  text-brown-900 font-DM Sans text-[12px] font-semibold leading-normal uppercase
-                                "
-                        >
-                          FURNITURE
-                        </h2>
-                        <h1
-                          className="
-                                w-[188.879px]
-                                text-black font-DM Sans text-[24px] font-semibold leading-normal capitalize
-                              "
-                        >
-                          Sleeper Sofa
-                        </h1>
-                        <h2
-                          className="
-                                h-[36px] self-stretch
-                                text-neutral-text-gray font-DM Sans text-[14px] font-normal leading-normal
-                              "
-                        >
-                          A stylish and comfortable modern sofa perfect for any
-                          living room.
-                        </h2>
-                      </div>
-
-                      {/* Rating */}
-                      <div className="flex items-center gap-[3px] pt-[6px]">
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                      </div>
-
-                      {/* Card Buttom */}
-                      <div className="flex justify-between items-center self-stretch">
-                        {/* Pricing */}
-                        <div className="flex items-center gap-[2px]">
-                          <h2
-                            className="
-                                  w-[10.663px] h-[18.279px]
-                                  text-black font-Inter text-[14px] font-normal leading-normal
-                                "
-                          >
-                            $
-                          </h2>
-                          <h1
-                            className="
-                                  w-[41.172px] h-[25.895px]
-                                  text-black font-DM Sans text-[21.325px] font-normal leading-normal
-                                "
-                          >
-                            1599
-                          </h1>
-                        </div>
-
-                        {/* Button */}
-                        <a className="w-[50px] h-[50px]">
-                          <img src="./assets/Circle Button.svg" alt="Plus" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* Product Card */}
-                <div className="flex w-[268px] flex-col items-center shrink-0 shadow-lg rounded-xl bg-white">
-                  {/* Image  */}
-                  <div className="h-[240px] self-stretch pl-[47px] pr-[47px] pt-[26.7px] pb-[9.26px]">
-                    <img
-                      src="https://www.ikea.com/us/en/images/products/styrspel-gaming-chair-dark-gray-gray__1115362_pe872046_s5.jpg?f=xl"
-                      alt="chair"
-                      className="w-[173.476px] h-[203.733px] shrink-0"
-                    />
-                  </div>
-                  {/* Frame 175 */}
-                  <div
-                    className="
-                            flex p-5 flex-col items-start gap-8 self-stretch
-                            rounded-bl-[20px] rounded-br-[20px]
-                            bg-white
-                          "
-                  >
-                    {/* Frame 3739 */}
-                    <div className="flex flex-col items-start gap-[6px] self-stretch">
-                      {/* Product infor */}
-                      <div className="flex flex-col items-start gap-1 self-stretch">
-                        <h2
-                          className="
-                                  self-stretch
-                                  text-brown-900 font-DM Sans text-[12px] font-semibold leading-normal uppercase
-                                "
-                        >
-                          FURNITURE
-                        </h2>
-                        <h1
-                          className="
-                                w-[188.879px]
-                                text-black font-DM Sans text-[24px] font-semibold leading-normal capitalize
-                              "
-                        >
-                          Gaming Chair
-                        </h1>
-                        <h2
-                          className="
-                                h-[36px] self-stretch
-                                text-neutral-text-gray font-DM Sans text-[14px] font-normal leading-normal
-                              "
-                        >
-                          A sleek and ergonomic chair for comfortable gaming
-                          sessions.
-                        </h2>
-                      </div>
-
-                      {/* Rating */}
-                      <div className="flex items-center gap-[3px] pt-[6px]">
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                      </div>
-
-                      {/* Card Buttom */}
-                      <div className="flex justify-between items-center self-stretch">
-                        {/* Pricing */}
-                        <div className="flex items-center gap-[2px]">
-                          <h2
-                            className="
-                                  w-[10.663px] h-[18.279px]
-                                  text-black font-Inter text-[14px] font-normal leading-normal
-                                "
-                          >
-                            $
-                          </h2>
-                          <h1
-                            className="
-                                  w-[41.172px] h-[25.895px]
-                                  text-black font-DM Sans text-[21.325px] font-normal leading-normal
-                                "
-                          >
-                            389.55
-                          </h1>
-                        </div>
-
-                        {/* Button */}
-                        <a className="w-[50px] h-[50px]">
-                          <img src="./assets/Circle Button.svg" alt="Plus" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                {/* Product Card */}
-                <div className="flex w-[268px] flex-col items-center shrink-0 shadow-lg rounded-xl bg-white">
-                  {/* Image  */}
-                  <div className="h-[240px] self-stretch pl-[47px] pr-[47px] pt-[26.7px] pb-[9.26px]">
-                    <img
-                      src="https://www.ikea.com/us/en/images/products/norden-froesvi-table-and-4-chairs-birch-knisa-dark-gray__1328452_pe944787_s5.jpg?f=xl"
-                      alt="chair"
-                      className="w-[173.476px] h-[203.733px] shrink-0"
-                    />
-                  </div>
-                  {/* Frame 175 */}
-                  <div
-                    className="
-                            flex p-5 flex-col items-start gap-8 self-stretch
-                            rounded-bl-[20px] rounded-br-[20px]
-                            bg-white
-                          "
-                  >
-                    {/* Frame 3739 */}
-                    <div className="flex flex-col items-start gap-[6px] self-stretch">
-                      {/* Product infor */}
-                      <div className="flex flex-col items-start gap-1 self-stretch">
-                        <h2
-                          className="
-                                  self-stretch
-                                  text-brown-900 font-DM Sans text-[12px] font-semibold leading-normal uppercase
-                                "
-                        >
-                          FURNITURE
-                        </h2>
-                        <h1
-                          className="
-                                w-[188.879px]
-                                text-black font-DM Sans text-[24px] font-semibold leading-normal capitalize
-                              "
-                        >
-                          Table Set
-                        </h1>
-                        <h2
-                          className="
-                                h-[36px] self-stretch
-                                text-neutral-text-gray font-DM Sans text-[14px] font-normal leading-normal
-                              "
-                        >
-                          A classic wooden dining set for your dining room or
-                          patio.
-                        </h2>
-                      </div>
-
-                      {/* Rating */}
-                      <div className="flex items-center gap-[3px] pt-[6px]">
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                        <img src="./assets/star.svg" alt="star" />
-                      </div>
-
-                      {/* Card Buttom */}
-                      <div className="flex justify-between items-center self-stretch">
-                        {/* Pricing */}
-                        <div className="flex items-center gap-[2px]">
-                          <h2
-                            className="
-                                  w-[10.663px] h-[18.279px]
-                                  text-black font-Inter text-[14px] font-normal leading-normal
-                                "
-                          >
-                            $
-                          </h2>
-                          <h1
-                            className="
-                                  w-[41.172px] h-[25.895px]
-                                  text-black font-DM Sans text-[21.325px] font-normal leading-normal
-                                "
-                          >
-                            645.24
-                          </h1>
-                        </div>
-
-                        {/* Button */}
-                        <a className="w-[50px] h-[50px]">
-                          <img src="./assets/Circle Button.svg" alt="Plus" />
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                  ))}
               </div>
-            </section>
+            </div>
 
-            {/* Image Link Note */}
+            {/* CTA */}
             <a href="/" alt="More Information">
-              <img src="./assets/CTA.svg" />
+              <img src="./assets/CTA.svg" alt="Browse all products" />
             </a>
           </section>
 
