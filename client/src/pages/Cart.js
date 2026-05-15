@@ -131,7 +131,7 @@ function Cart() {
   }
 
   return (
-    <div className="flex flex-col lg:flex-row justify-between min-h-screen max-h-fit bg-brown-500 px-[350px] py-[120px]">
+    <div className="flex flex-col lg:flex-row justify-between min-h-screen max-h-fit bg-brown-500 px-4 md:px-10 lg:px-20 xl:px-[120px] py-[80px] md:py-[120px] gap-6">
       {/* Cart Section */}
       <div className="w-full lg:w-2/3 bg-white rounded-3xl min-h-[474px] max-h-fit shadow-md p-8 space-y-6">
         <h2 className="text-display-4 text-heading-black font-bold font-DM Sans">
@@ -154,7 +154,7 @@ function Cart() {
       </div>
 
       {/* Order Summary Section */}
-      <div className="w-full lg:w-1/3 bg-heading-black rounded-3xl shadow-md p-8 lg:mt-0 lg:ml-6 space-y-6 max-h-[474px] flex flex-col justify-between">
+      <div className="w-full lg:w-1/3 bg-heading-black rounded-3xl shadow-md p-8 space-y-6 flex flex-col justify-between">
         <h2 className="text-display-4 text-white font-semibold font-DM Sans">
           Order Summary
         </h2>

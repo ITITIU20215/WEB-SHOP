@@ -1,74 +1,110 @@
 .UserProfile {
+  padding: 100px 16px 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 640px) {
+  .UserProfile {
+    padding: 100px 32px 60px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .UserProfile {
     padding: 120px;
-    max-width: 1200px;
-    margin: 0 auto;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   }
-  
-  .UserProfile-header {
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .UserProfile-info {
-    margin-bottom: 20px;
-  }
-  
-  .UserProfile-info p {
-    margin: 5px 0;
-  }
-  
-  .UserProfile-orders {
-    margin-top: 20px;
-  }
-  
-  .UserProfile-orders h2 {
-    margin-bottom: 10px;
-  }
-  
-  .orders-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
+}
+
+.UserProfile-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.UserProfile-info {
+  margin-bottom: 20px;
+}
+
+.UserProfile-info p {
+  margin: 5px 0;
+}
+
+.UserProfile-orders {
+  margin-top: 20px;
+}
+
+.UserProfile-orders h2 {
+  margin-bottom: 10px;
+}
+
+.orders-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.order-card {
+  display: flex;
+  flex-direction: column;
+  background-color: #f9f9f9;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 640px) {
   .order-card {
-    display: flex;
-    flex-direction: column;
-    background-color: #f9f9f9;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
   }
-  
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+@media (min-width: 768px) {
   .order-info {
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 16px;
   }
-  
-  .price-info {
-    margin-top: 10px;
-  }
-  
-  .order-details summary {
-    cursor: pointer;
-    font-weight: bold;
-    margin-top: 10px;
-  }
-  
-  .order-details ul {
-    list-style: none;
-    padding: 0;
-    margin-top: 10px;
-  }
-  
+}
+
+.price-info {
+  margin-top: 10px;
+}
+
+.order-details summary {
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.order-details ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.order-details li {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+@media (min-width: 480px) {
   .order-details li {
-    margin-bottom: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    flex-direction: row;
   }
+}

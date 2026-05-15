@@ -51,82 +51,25 @@ function ProductPage() {
     <div className="flex flex-col min-h-screen bg-brown-400 py-[120px]">
       <main className="flex-grow container mx-auto px-4 py-8">
         <div className="flex flex-col items-start gap-16">
-          <div className="flex justify-between items-center self-stretch">
-            <h1 className="text-display-2 font-bold text-black">
+          <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-8 self-stretch">
+            <h1 className="text-4xl md:text-display-2 font-bold text-black shrink-0">
               What are you{" "}
               <span className="block">
                 <span className="text-orange-500">looking</span> for?
               </span>
             </h1>
-            <div className="flex w-[700px] items-center gap-5">
-              <div className="w-[160px] h-[200px] flex flex-col items-start gap-5">
-                <img
-                  src="./assets/Furniture.svg"
-                  className="
-                                w-[160px] h-[160px]
-
-                            "
-                />
-                <h1
-                  className="
-                                self-stretch 
-                                text-black font-DM Sans  font-medium leading-5    
-                            "
-                >
-                  Furniture
-                </h1>
-              </div>
-              <div className="flex flex-col items-start gap-5">
-                <img
-                  src="./assets/decor.svg"
-                  className="
-                                w-[160px] h-[160px]
-
-                            "
-                />
-                <h1
-                  className="
-                                self-stretch 
-                                text-black font-DM Sans  font-medium leading-5    
-                            "
-                >
-                  Decoration
-                </h1>
-              </div>
-              <div className="flex flex-col items-start gap-5">
-                <img
-                  src="./assets/Storage.svg"
-                  className="
-                                w-[160px] h-[160px]
-
-                            "
-                />
-                <h1
-                  className="
-                                self-stretch 
-                                text-black font-DM Sans  font-medium leading-5    
-                            "
-                >
-                  Storage
-                </h1>
-              </div>
-              <div className="flex flex-col items-start justify-center  gap-5">
-                <img
-                  src="./assets/Lighting.svg"
-                  className="
-                                w-[160px] h-[160px]
-
-                            "
-                />
-                <h1
-                  className="
-                                self-stretch 
-                                text-black font-DM Sans  font-medium leading-5    
-                            "
-                >
-                  Lighting
-                </h1>
-              </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 w-full lg:w-auto">
+              {[
+                { src: "./assets/Furniture.svg", label: "Furniture" },
+                { src: "./assets/decor.svg", label: "Decoration" },
+                { src: "./assets/Storage.svg", label: "Storage" },
+                { src: "./assets/Lighting.svg", label: "Lighting" },
+              ].map((cat) => (
+                <div key={cat.label} className="flex flex-col items-start gap-3 sm:gap-5">
+                  <img src={cat.src} className="w-full max-w-[160px] h-auto aspect-square" alt={cat.label} />
+                  <h1 className="text-black font-DM Sans font-medium leading-5">{cat.label}</h1>
+                </div>
+              ))}
             </div>
           </div>
 

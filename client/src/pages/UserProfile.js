@@ -74,8 +74,8 @@ function UserProfile() {
   }
 
   return (
-    <div className="UserProfile space-y-[120px]">
-          <div className="flex justify-between">
+    <div className="UserProfile space-y-[60px] md:space-y-[120px]">
+          <div className="flex flex-col md:flex-row justify-between gap-8">
       <div className="flex flex-col space-y-4">
                 <h2 className="text-display-3 text-heading-black font-bold text-left max-w-[300px]">
                   User <span className="text-orange-500">Information</span>

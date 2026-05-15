@@ -39,13 +39,13 @@ function Login({ onLogin }) {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-brown-500">
-      <div className="flex bg-white rounded-3xl shadow-lg w-[1020px] mt-[80px]">
+    <div className="flex items-center justify-center min-h-screen bg-brown-500 px-4">
+      <div className="flex bg-white rounded-3xl shadow-lg w-full max-w-[1020px] mt-[80px]">
         <div
-          className="w-1/2 bg-cover bg-center rounded-l-lg"
+          className="hidden md:block w-1/2 bg-cover bg-center rounded-l-3xl"
           style={{ backgroundImage: "url(./assets/loginImage.png)" }}
         ></div>
-        <div className="w-1/2 py-28 px-16">
+        <div className="w-full md:w-1/2 py-16 md:py-28 px-8 md:px-16">
           <form className="space-y-[40px]" onSubmit={handleLogin}>
             <h2 className="text-display-3 text-heading-black font-bold">
               Login to your{" "}

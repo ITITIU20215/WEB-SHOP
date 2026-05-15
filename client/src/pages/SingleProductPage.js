@@ -50,15 +50,15 @@ function SingleProductPage() {
   }
 
   return (
-    <div className="flex flex-col min-h-screen bg-brown-400 py-[120px] px-[120px] gap-8">
-      <div className="flex justify-start mb-8">
+    <div className="flex flex-col min-h-screen bg-brown-400 py-[80px] md:py-[120px] px-4 md:px-10 lg:px-[80px] gap-8">
+      <div className="flex justify-start mt-4 md:mt-0">
         <BackButton />
       </div>
-      <main className="inline-flex gap-16 container mx-auto px-8 py-8 shadow-lg bg-white rounded-3xl max-w-screen-xl ">
+      <main className="flex flex-col md:flex-row gap-8 md:gap-16 container mx-auto px-6 md:px-8 py-8 shadow-lg bg-white rounded-3xl max-w-screen-xl">
         <img
           src={product.image}
           alt={product.name}
-          className="w-1/2 max-h-screen h-auto object-contain rounded-lg"
+          className="w-full md:w-1/2 max-h-[400px] md:max-h-screen h-auto object-contain rounded-lg"
         />
         <div className="p-4 space-y-6 w-full">
           <p className="text-brown-900 uppercase font-semibold text-sm">

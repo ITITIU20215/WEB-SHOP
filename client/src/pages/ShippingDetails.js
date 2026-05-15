@@ -97,8 +97,8 @@ function ShippingDetails() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-brown-500 py-[120px] px-[120px]">
-      <div className="self-start mb-8 pl-8">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-brown-500 py-[100px] md:py-[120px] px-4 md:px-10 lg:px-[80px]">
+      <div className="self-start mb-8 pl-2 md:pl-8">
         <BackButton />
       </div>
       <div className="bg-white rounded-3xl shadow-lg w-full max-w-[804px] px-8 sm:px-16 py-12">
